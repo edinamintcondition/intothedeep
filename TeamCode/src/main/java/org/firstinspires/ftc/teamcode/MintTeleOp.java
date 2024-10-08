@@ -34,13 +34,13 @@ public class MintTeleOp extends LinearOpMode {
         while (opModeIsActive()) {
             wheels.run();
 
-            arm.run();
+ //           arm.run();
 
-            wrist.run();
+//            wrist.run();
 
-            launcher.run();
+ //           launcher.run();
 
-            grabber.run();
+ //           grabber.run();
             grabber.printPosition();
 
             telemetry.update();

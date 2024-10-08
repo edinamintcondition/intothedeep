@@ -6,18 +6,18 @@ import static java.util.Arrays.asList;
 import static java.util.Collections.max;
 import static java.util.Collections.min;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
-
-
+@Disabled
 public class MintWheels {
     // Constants
     //Sets power to 60%
-    double forwardPowerLimit = 0.60;
-    double backwardPowerLimit = -0.60;
+     double forwardPowerLimit = 0.60;
+     double backwardPowerLimit = -0.60;
 
     // Variables
     Gamepad gamepad;
