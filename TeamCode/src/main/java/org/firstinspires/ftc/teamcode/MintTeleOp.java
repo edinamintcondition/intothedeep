@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -8,6 +9,9 @@ import parts.MintLauncher;
 import parts.MintWheels;
 import parts.MintGrabber;
 import parts.MintWrist;
+
+@Disabled
+
 
 @TeleOp(name = "Mint TeleOp", group = "A")
 public class MintTeleOp extends LinearOpMode {
