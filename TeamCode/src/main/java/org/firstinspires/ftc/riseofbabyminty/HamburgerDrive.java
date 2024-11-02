@@ -22,9 +22,7 @@ public class HamburgerDrive extends LinearOpMode {
         rightFrontHamburger.setDirection(DcMotor.Direction.REVERSE);
         rightBackHamburger.setDirection(DcMotor.Direction.REVERSE);
 
-        double axial = -gamepad1.left_stick_y;
-        double lateral = gamepad1.left_stick_x;
-        double yaw = gamepad1.right_stick_x;
+        //gamepad values
 
         //frontpowerlimit
         // double HamburgerderLimit = 0.60;
@@ -37,6 +35,17 @@ public class HamburgerDrive extends LinearOpMode {
         waitForStart();
         //step: 4 hamburger begin spin with values
         while (opModeIsActive()) {
+
+            double axial = -gamepad1.left_stick_y;
+            double lateral = gamepad1.left_stick_x;
+            double yaw = gamepad1.right_stick_x;
+
+//debugging thingy
+
+            telemetry.addData("axialvalue", axial);
+            telemetry.addData("lateralvalue", lateral);
+            telemetry.addData("yawvalue", yaw);
+
             //below: og hamburger drive
 //            if (gamepad1.x) {
 //                if (gamepad1.right_bumper) {
@@ -105,10 +114,10 @@ public class HamburgerDrive extends LinearOpMode {
             double rightFrontHamburgerPower = -axial + lateral + (yaw * 5);
             double rightBackHamburgerPower = axial + lateral - (yaw * 5);
 
-            double leftFrontHamburgerPower = 0.5;
-            double leftBackHamburgerPower = 0.5;
-            double rightBackHamburgerPower = 0.53;
-            double rightFrontHamburgerPower = 0.53;
+//            double leftFrontHamburgerPower = 0.5;
+//            double leftBackHamburgerPower = 0.5;
+//            double rightBackHamburgerPower = 0.53;
+//            double rightFrontHamburgerPower = 0.53;
 
             // move motor
             leftFrontHamburger.setPower(leftFrontHamburgerPower);
@@ -116,6 +125,13 @@ public class HamburgerDrive extends LinearOpMode {
             rightBackHamburger.setPower(rightBackHamburgerPower);
             rightFrontHamburger.setPower(rightFrontHamburgerPower);
 
+            //debuggin part 2 (motor values)
+
+            telemetry.addData("LFrontHamburgerPower", leftFrontHamburgerPower);
+            telemetry.addData("RFrontHamburgerPower", rightFrontHamburgerPower);
+            telemetry.addData("LBackHamburgerPower", leftBackHamburgerPower);
+            telemetry.addData("RBackHamburgerPower", rightBackHamburgerPower);
+            telemetry.update();
 
         }
     }
