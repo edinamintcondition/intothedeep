@@ -46,7 +46,7 @@ public class MintArm {
             if (gamepad.left_trigger > 0.8) {
                 armMotor.setPower(0.00);
                 isStrongArm = false;
-                telemetry.addData(">", "Back to normal!!");
+                telemetry.addData(">", "Back to normal!!!!");
             }
 
         } else {

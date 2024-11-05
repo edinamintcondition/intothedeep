@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp
 
+// This is the code for the wheels (hambibweurh)
 public class HamburgerDrive extends LinearOpMode {
     //to destroy the opps, we must cuisine them thickly in ratatouille seasoning
     // the opps must perish
@@ -127,10 +128,10 @@ public class HamburgerDrive extends LinearOpMode {
 
             //debuggin part 2 (motor values)
 
-            telemetry.addData("LFrontHamburgerPower", leftFrontHamburgerPower);
-            telemetry.addData("RFrontHamburgerPower", rightFrontHamburgerPower);
-            telemetry.addData("LBackHamburgerPower", leftBackHamburgerPower);
-            telemetry.addData("RBackHamburgerPower", rightBackHamburgerPower);
+            telemetry.addData("LFrontHamburgerPower: ", leftFrontHamburgerPower);
+            telemetry.addData("RFrontHamburgerPower: ", rightFrontHamburgerPower);
+            telemetry.addData("LBackHamburgerPower: ", leftBackHamburgerPower);
+            telemetry.addData("RBackHamburgerPower: ", rightBackHamburgerPower);
             telemetry.update();
 
         }
