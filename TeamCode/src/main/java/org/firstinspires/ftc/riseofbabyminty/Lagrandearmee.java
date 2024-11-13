@@ -37,7 +37,8 @@ public class Lagrandearmee extends LinearOpMode {
             telemetry.addData("armposition", magicservo.getPosition());
             telemetry.update();
         }
-
+        // sticking out your gamepad left stick Y for the rizzler
+        // armbutton = gamepad1.left_stick_y
 
     }
 }
