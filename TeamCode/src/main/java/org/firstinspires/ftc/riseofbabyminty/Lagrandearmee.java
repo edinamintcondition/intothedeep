@@ -1,46 +1,43 @@
 package org.firstinspires.ftc.riseofbabyminty;
 
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.Gamepad;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@TeleOp
+import org.firstinspires.ftc.robotcore.external.Telemetry;
+
+
 // This is the code for the arm(ee)
-public class Lagrandearmee extends LinearOpMode {
-    @Override
-    public void runOpMode() throws InterruptedException {
+public class Lagrandearmee {
+    Gamepad gamepad;
+    Telemetry telemetry;
+    Servo magicservo;
+
+    public Lagrandearmee(HardwareMap hardwareMap, Telemetry telemetry, Gamepad gamepad) {
         // step 1: all initial steps (hardwaremapwhee)
-        Servo magicservo = hardwareMap.get(Servo.class, "servo1");
+        this.telemetry = telemetry;
+        this.gamepad = gamepad;
+        this.magicservo = hardwareMap.get(Servo.class, "clawservo");
         magicservo.setDirection(Servo.Direction.FORWARD);
-
-        waitForStart();
-        while (opModeIsActive()) {
-            double movevalue = -gamepad1.left_stick_y;
-            telemetry.addData("movevalue", movevalue);
-            //calculate servo
-            double magicservoPosition = (movevalue / 2) + 0.5;
-            //step 2: desired robotic task to be executed below within these curly brackets
-            // }: moustachio (the lorax?)
-//            if (movevalue < -0.99) {
-//                magicservo.setPosition(0);
-//            }
-//            if (movevalue == 0.5) {
-//                magicservo.setPosition(0);
-//            } else if (movevalue > 0.25 && movevalue < 0.99) {
-//                magicservo.setPosition(0.5);
-//            } else if (movevalue > 0.99 && movevalue > 0.25) {
-//                magicservo.setPosition(1.0);
-//            }
-
-            magicservo.setPosition(magicservoPosition);
-
-            telemetry.addData("armposition", magicservo.getPosition());
-            telemetry.update();
-        }
-        // sticking out your gamepad left stick Y for the rizzler
-        // armbutton = gamepad1.left_stick_y
-
     }
+
+
+    //ADJUST INPUTS SO IT'S BUMPERS INSTEAD OF JOYSTICK and camera detects color
+    public void wingedhussars() {
+        double movevalue = gamepad.right_stick_y;
+        ;
+        telemetry.addData("movevalue", movevalue);
+        //calculate servo
+        double magicservoPosition = (movevalue / 2) + 0.5;
+
+        //lorax -> }:
+
+        magicservo.setPosition(magicservoPosition);
+
+        telemetry.addData("armposition", magicservo.getPosition());
+    }
+    // sticking out your gamepad left stick Y for the rizzler
+    // armbutton = gamepad1.left_stick_y
 }
 
 

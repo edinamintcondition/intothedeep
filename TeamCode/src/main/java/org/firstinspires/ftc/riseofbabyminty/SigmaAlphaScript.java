@@ -9,15 +9,21 @@ public class SigmaAlphaScript extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-        MegaHamburgerDrive wheels = new MegaHamburgerDrive(hardwareMap,telemetry, gamepad1);
+        MegaHamburgerDrive wheels = new MegaHamburgerDrive(hardwareMap, telemetry, gamepad1);
+        Lagrandearmee hand = new Lagrandearmee(hardwareMap, telemetry, gamepad2);
+        LplusRatio arm = new LplusRatio(hardwareMap, telemetry, gamepad2);
+        //wait for??? Start OpMode
+        waitForStart();
 
         while (opModeIsActive()) {
+            //invoking the magic car deities
             wheels.drivecarvroom();
-            
+            hand.wingedhussars();
+            arm.teutonicknight();
+
             telemetry.update();
-            //Start OpMode
-            waitForStart();
         }
 
     }
 }
+//beta?

@@ -25,7 +25,7 @@ public class MegaHamburgerDrive {
     public MegaHamburgerDrive(HardwareMap hardwareMap, Telemetry telemetry, Gamepad gamepad) {
         this.telemetry = telemetry;
         this.gamepad = gamepad;
-                //step:1 add hamburgers
+        //step:1 add hamburgers
         leftFrontHamburger = hardwareMap.get(DcMotor.class, "left_front_drive");
         leftBackHamburger = hardwareMap.get(DcMotor.class, "left_back_drive");
         rightFrontHamburger = hardwareMap.get(DcMotor.class, "right_front_drive");
@@ -39,11 +39,12 @@ public class MegaHamburgerDrive {
         rightBackHamburger.setDirection(DcMotor.Direction.REVERSE);
 
     }
-    //am cooked
-    public void drivecarvroom() {
 
-    //to destroy the opps, we must cuisine them thickly in ratatouille seasoning
-    // the opps must perish
+    //am cooked fr fr
+    public void drivecarvroom() {
+        // drive wheel function
+        //to destroy the opps, we must cuisine them thickly in ratatouille seasoning
+        // the opps must perish
 
 
         // step one to  establishing a dictatorship:
@@ -59,34 +60,34 @@ public class MegaHamburgerDrive {
         //step: 4 hamburger begin spin with values
 //        while (opModeIsActive()) {
 
-            double axial = -gamepad.left_stick_y;
-            double lateral = gamepad.left_stick_x;
-            double yaw = gamepad.right_stick_x;
+        double axial = -gamepad.left_stick_y;
+        double lateral = gamepad.left_stick_x;
+        double yaw = gamepad.right_stick_x;
 
 //debugging thingy
 
-            telemetry.addData("axialvalue", axial);
-            telemetry.addData("lateralvalue", lateral);
-            telemetry.addData("yawvalue", yaw);
+        telemetry.addData("axialvalue", axial);
+        telemetry.addData("lateralvalue", lateral);
+        telemetry.addData("yawvalue", yaw);
 
-            double leftFrontHamburgerPower = axial + lateral + (yaw * 5);
-            double leftBackHamburgerPower = axial - lateral + (yaw * 5);
-            double rightFrontHamburgerPower = -axial + lateral + (yaw * 5);
-            double rightBackHamburgerPower = axial + lateral - (yaw * 5);
+        double leftFrontHamburgerPower = axial + lateral + (yaw * 5);
+        double leftBackHamburgerPower = axial - lateral + (yaw * 5);
+        double rightFrontHamburgerPower = -axial + lateral + (yaw * 5);
+        double rightBackHamburgerPower = axial + lateral - (yaw * 5);
 
-//            double rightFrontHamburgerPower = 0.53;
+//          double rightFrontHamburgerPower = 0.53;
 
-            // move motor
-            leftFrontHamburger.setPower(leftFrontHamburgerPower);
-            leftBackHamburger.setPower(leftBackHamburgerPower);
-            rightBackHamburger.setPower(rightBackHamburgerPower);
-            rightFrontHamburger.setPower(rightFrontHamburgerPower);
+        // move motor
+        leftFrontHamburger.setPower(leftFrontHamburgerPower);
+        leftBackHamburger.setPower(leftBackHamburgerPower);
+        rightBackHamburger.setPower(rightBackHamburgerPower);
+        rightFrontHamburger.setPower(rightFrontHamburgerPower);
 
-            telemetry.addData("LFrontHamburgerPower: ", leftFrontHamburgerPower);
-            telemetry.addData("RFrontHamburgerPower: ", rightFrontHamburgerPower);
-            telemetry.addData("LBackHamburgerPower: ", leftBackHamburgerPower);
-            telemetry.addData("RBackHamburgerPower: ", rightBackHamburgerPower);
-            telemetry.update();
+        telemetry.addData("LFrontHamburgerPower: ", leftFrontHamburgerPower);
+        telemetry.addData("RFrontHamburgerPower: ", rightFrontHamburgerPower);
+        telemetry.addData("LBackHamburgerPower: ", leftBackHamburgerPower);
+        telemetry.addData("RBackHamburgerPower: ", rightBackHamburgerPower);
+        telemetry.update();
 //
 //        }
     }
