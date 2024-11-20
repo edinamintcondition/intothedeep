@@ -34,7 +34,10 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
+
+import parts.MintArm;
 
 /*
  */
@@ -63,6 +66,10 @@ public class MintyWheels extends LinearOpMode {
         leftBackDrive.setDirection(DcMotor.Direction.REVERSE);
         rightFrontDrive.setDirection(DcMotor.Direction.FORWARD);
         rightBackDrive.setDirection(DcMotor.Direction.FORWARD);
+
+        Servo magicservo = hardwareMap.get(Servo.class, "gripper");
+
+        MintArm arm = new MintArm(hardwareMap, gamepad2, telemetry);
 
         // Wait for the game to start (driver presses START)
         telemetry.addData("Status", "Initialized");
@@ -125,6 +132,17 @@ public class MintyWheels extends LinearOpMode {
             telemetry.addData(">", "FrontRight motor: ", rightFrontPower);
             telemetry.addData(">", "BackLeft motor: ", leftBackPower);
             telemetry.addData(">", "BackRight motor: ", rightBackPower);
+
+
+            double movevalue = -gamepad2.right_stick_y;
+            telemetry.addData("movevalue", movevalue);
+            //calculate servo
+            double magicservoPosition = (movevalue / 2) + 0.5;
+            magicservo.setPosition(magicservoPosition);
+
+            telemetry.addData("armposition", magicservo.getPosition());
+
+            arm.run();
             telemetry.update();
         }
 

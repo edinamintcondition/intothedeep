@@ -4,30 +4,47 @@ import com.qualcomm.hardware.rev.RevColorSensorV3;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Gamepad;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 
 // This is the code for the wheels (hambibweurh)
 
 public class MegaHamburgerDrive {
-    public MegaHamburgerDrive() {}
-    //am cooked
-    public void drivecarvroom() {}
 
-//    //to destroy the opps, we must cuisine them thickly in ratatouille seasoning
-//    // the opps must perish
-    public void runOpMode() {
-//        //step:1 add hamburgers
-//
-//        DcMotor leftFrontHamburger = hardwareMap.get(DcMotor.class, "left_front_drive");
-//        DcMotor leftBackHamburger = hardwareMap.get(DcMotor.class, "left_back_drive");
-//        DcMotor rightFrontHamburger = hardwareMap.get(DcMotor.class, "right_front_drive");
-//        DcMotor rightBackHamburger = hardwareMap.get(DcMotor.class, "right_back_drive");
-//        //step:2 configurate hamburgers
-//        leftFrontHamburger.setDirection(DcMotor.Direction.FORWARD);
-//        leftBackHamburger.setDirection(DcMotor.Direction.FORWARD);
-//        rightFrontHamburger.setDirection(DcMotor.Direction.REVERSE);
-//        rightBackHamburger.setDirection(DcMotor.Direction.REVERSE);
+    Gamepad gamepad;
+    Telemetry telemetry;
+
+    DcMotor leftFrontHamburger;
+    DcMotor leftBackHamburger;
+    DcMotor rightFrontHamburger;
+    DcMotor rightBackHamburger;
+
+    public MegaHamburgerDrive(HardwareMap hardwareMap, Telemetry telemetry, Gamepad gamepad) {
+        this.telemetry = telemetry;
+        this.gamepad = gamepad;
+                //step:1 add hamburgers
+        leftFrontHamburger = hardwareMap.get(DcMotor.class, "left_front_drive");
+        leftBackHamburger = hardwareMap.get(DcMotor.class, "left_back_drive");
+        rightFrontHamburger = hardwareMap.get(DcMotor.class, "right_front_drive");
+        rightBackHamburger = hardwareMap.get(DcMotor.class, "right_back_drive");
+
+
+        //step:2 configurate hamburgers
+        leftFrontHamburger.setDirection(DcMotor.Direction.FORWARD);
+        leftBackHamburger.setDirection(DcMotor.Direction.FORWARD);
+        rightFrontHamburger.setDirection(DcMotor.Direction.REVERSE);
+        rightBackHamburger.setDirection(DcMotor.Direction.REVERSE);
+
+    }
+    //am cooked
+    public void drivecarvroom() {
+
+    //to destroy the opps, we must cuisine them thickly in ratatouille seasoning
+    // the opps must perish
+
 
         // step one to  establishing a dictatorship:
         // sway the people to your will and promise fake promises so they "vote" for you
@@ -38,13 +55,13 @@ public class MegaHamburgerDrive {
         //step 4:
         // eat hamburger
 
-        waitForStart();
+//        waitForStart();
         //step: 4 hamburger begin spin with values
-        while (opModeIsActive()) {
+//        while (opModeIsActive()) {
 
-            double axial = -gamepad1.left_stick_y;
-            double lateral = gamepad1.left_stick_x;
-            double yaw = gamepad1.right_stick_x;
+            double axial = -gamepad.left_stick_y;
+            double lateral = gamepad.left_stick_x;
+            double yaw = gamepad.right_stick_x;
 
 //debugging thingy
 
@@ -72,7 +89,6 @@ public class MegaHamburgerDrive {
             telemetry.update();
 //
 //        }
-//    }
+    }
 }
-//
-//
+

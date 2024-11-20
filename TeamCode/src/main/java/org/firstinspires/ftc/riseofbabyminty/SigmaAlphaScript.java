@@ -9,7 +9,8 @@ public class SigmaAlphaScript extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-        MegaHamburgerDrive wheels = new MegaHamburgerDrive();
+        MegaHamburgerDrive wheels = new MegaHamburgerDrive(hardwareMap,telemetry, gamepad1);
+
         while (opModeIsActive()) {
             wheels.drivecarvroom();
             
