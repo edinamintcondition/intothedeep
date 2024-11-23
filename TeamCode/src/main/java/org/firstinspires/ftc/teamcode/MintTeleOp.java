@@ -10,6 +10,8 @@ import parts.MintWheels;
 import parts.MintGrabber;
 import parts.MintWrist;
 
+@Disabled
+
 @TeleOp(name = "Mint TeleOp", group = "A")
 public class MintTeleOp extends LinearOpMode {
 
@@ -39,7 +41,7 @@ public class MintTeleOp extends LinearOpMode {
 
             wrist.run();
 
- //           launcher.run();
+            //           launcher.run();
 
             grabber.run();
             grabber.printPosition();

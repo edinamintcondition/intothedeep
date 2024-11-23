@@ -39,6 +39,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import parts.MintArm;
 
+@Disabled
 /*
  */
 @TeleOp(name = "MintyWheels", group = "Linear OpMode")

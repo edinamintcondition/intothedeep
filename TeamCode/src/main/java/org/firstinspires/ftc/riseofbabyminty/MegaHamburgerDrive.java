@@ -33,11 +33,11 @@ public class MegaHamburgerDrive {
         rightBackHamburger = hardwareMap.get(DcMotor.class, "right_back_drive");
 
 
-        //step:2 configurate hamburgers, right front is configurated differently because on old robo motor is goofy
-        leftFrontHamburger.setDirection(DcMotor.Direction.FORWARD);
-        leftBackHamburger.setDirection(DcMotor.Direction.FORWARD);
-        rightFrontHamburger.setDirection(DcMotor.Direction.FORWARD);
-        rightBackHamburger.setDirection(DcMotor.Direction.REVERSE);
+        //step:2 configurate hamburgers, right front is configurated differently because robot motor is goofy
+        leftFrontHamburger.setDirection(DcMotor.Direction.REVERSE);
+        leftBackHamburger.setDirection(DcMotor.Direction.REVERSE);
+        rightFrontHamburger.setDirection(DcMotor.Direction.REVERSE);
+        rightBackHamburger.setDirection(DcMotor.Direction.FORWARD);
 
     }
 

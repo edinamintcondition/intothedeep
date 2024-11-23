@@ -12,19 +12,19 @@ public class Lagrandearmee {
     Gamepad gamepad;
     Telemetry telemetry;
     Servo magicservo;
-    Servo leftheppeservo;
-    Servo rightheppeservo;
+//    Servo leftheppeservo;
+//    Servo rightheppeservo;
 
     public Lagrandearmee(HardwareMap hardwareMap, Telemetry telemetry, Gamepad gamepad) {
         // step 1: all initial steps (hardwaremapwhee)
         this.telemetry = telemetry;
         this.gamepad = gamepad;
         this.magicservo = hardwareMap.get(Servo.class, "clawservo");
-        this.leftheppeservo = hardwareMap.get(Servo.class, "leftservo");
-        this.rightheppeservo = hardwareMap.get(Servo.class, "rightservo");
+//        this.leftheppeservo = hardwareMap.get(Servo.class, "leftservo");
+//        this.rightheppeservo = hardwareMap.get(Servo.class, "rightservo");
         magicservo.setDirection(Servo.Direction.FORWARD);
-        leftheppeservo.setDirection(Servo.Direction.FORWARD);
-        rightheppeservo.setDirection(Servo.Direction.FORWARD);
+//        leftheppeservo.setDirection(Servo.Direction.FORWARD);
+//        rightheppeservo.setDirection(Servo.Direction.FORWARD);
     }
 
 
@@ -38,22 +38,22 @@ public class Lagrandearmee {
 
         //lorax -> }:
 
-        //below is experimentalcode for claws, the HEPPESERVOS are purely for experimental, comment them when actual use
-        if (gamepad.right_bumper) {
-            rightheppeservo.setPosition(0.75);
-        } else {
-            rightheppeservo.setPosition(0);
-        }
-        if (gamepad.left_bumper) {
-            leftheppeservo.setPosition(0.75);
-        } else {
-            leftheppeservo.setPosition(0);
-        }
-
+//        //below is experimentalcode for claws, the HEPPESERVOS are purely for experimental, comment them when actual use
+//        if (gamepad.right_bumper) {
+//            rightheppeservo.setPosition(0.75);
+//        } else {
+//            rightheppeservo.setPosition(0);
+//        }
+//        if (gamepad.left_bumper) {
+//            leftheppeservo.setPosition(0.75);
+//        } else {
+//            leftheppeservo.setPosition(0);
+//        }
+//
         magicservo.setPosition(magicservoPosition);
-        telemetry.addData("leftposition", leftheppeservo.getPosition());
-        telemetry.addData("rightclawposition", rightheppeservo.getPosition());
-        telemetry.addData("wristposition", magicservo.getPosition());
+//        telemetry.addData("leftposition", leftheppeservo.getPosition());
+//        telemetry.addData("rightclawposition", rightheppeservo.getPosition());
+        telemetry.addData("clawposition", magicservo.getPosition());
     }
     // sticking out your gamepad left stick Y for the rizzler
     // armbutton = gamepad1.left_stick_y
