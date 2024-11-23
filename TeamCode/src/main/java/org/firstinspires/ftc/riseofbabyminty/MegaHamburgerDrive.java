@@ -4,6 +4,7 @@ import com.qualcomm.hardware.rev.RevColorSensorV3;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -36,7 +37,7 @@ public class MegaHamburgerDrive {
         leftFrontHamburger.setDirection(DcMotor.Direction.FORWARD);
         leftBackHamburger.setDirection(DcMotor.Direction.FORWARD);
         rightFrontHamburger.setDirection(DcMotor.Direction.REVERSE);
-        rightBackHamburger.setDirection(DcMotor.Direction.REVERSE);
+        rightBackHamburger.setDirection(DcMotor.Direction.FORWARD);
 
     }
 
@@ -87,7 +88,6 @@ public class MegaHamburgerDrive {
         telemetry.addData("RFrontHamburgerPower: ", rightFrontHamburgerPower);
         telemetry.addData("LBackHamburgerPower: ", leftBackHamburgerPower);
         telemetry.addData("RBackHamburgerPower: ", rightBackHamburgerPower);
-        telemetry.update();
 //
 //        }
     }

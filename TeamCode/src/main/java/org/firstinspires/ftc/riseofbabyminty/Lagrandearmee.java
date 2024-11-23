@@ -7,34 +7,53 @@ import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 
-// This is the code for the arm(ee)
+// This is the code for the arm(ee) (specifically, the wrist and claw, l+ratio is the actual arm motor
 public class Lagrandearmee {
     Gamepad gamepad;
     Telemetry telemetry;
     Servo magicservo;
+    Servo leftheppeservo;
+    Servo rightheppeservo;
 
     public Lagrandearmee(HardwareMap hardwareMap, Telemetry telemetry, Gamepad gamepad) {
         // step 1: all initial steps (hardwaremapwhee)
         this.telemetry = telemetry;
         this.gamepad = gamepad;
         this.magicservo = hardwareMap.get(Servo.class, "clawservo");
+        this.leftheppeservo = hardwareMap.get(Servo.class, "leftservo");
+        this.rightheppeservo = hardwareMap.get(Servo.class, "rightservo");
         magicservo.setDirection(Servo.Direction.FORWARD);
+        leftheppeservo.setDirection(Servo.Direction.FORWARD);
+        rightheppeservo.setDirection(Servo.Direction.FORWARD);
     }
 
 
-    //ADJUST INPUTS SO IT'S BUMPERS INSTEAD OF JOYSTICK and camera detects color
+    //ADJUST INPUTS SO camera detects color
     public void wingedhussars() {
-        double movevalue = gamepad.right_stick_y;
-        ;
+        //below: the servo for the hand
+        double movevalue = -gamepad.right_stick_y;
         telemetry.addData("movevalue", movevalue);
         //calculate servo
         double magicservoPosition = (movevalue / 2) + 0.5;
 
         //lorax -> }:
 
-        magicservo.setPosition(magicservoPosition);
+        //below is experimentalcode for claws, the HEPPESERVOS are purely for experimental, comment them when actual use
+        if (gamepad.right_bumper = true) {
+            rightheppeservo.setPosition(0.75);
+        } else {
+            rightheppeservo.setPosition(0);
+        }
+        if (gamepad.left_bumper = true) {
+            leftheppeservo.setPosition(-0.75);
+        } else {
+            leftheppeservo.setPosition(0);
+        }
 
-        telemetry.addData("armposition", magicservo.getPosition());
+        magicservo.setPosition(magicservoPosition);
+        telemetry.addData("leftposition", leftheppeservo.getPosition());
+        telemetry.addData("rightclawposition", rightheppeservo.getPosition());
+        telemetry.addData("wristposition", magicservo.getPosition());
     }
     // sticking out your gamepad left stick Y for the rizzler
     // armbutton = gamepad1.left_stick_y

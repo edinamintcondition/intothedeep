@@ -7,6 +7,10 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.NormalizedRGBA;
 
+
+//THIS PROGRAM IS OUT OF USE (NOT BEING USED)!!!!!!!!!!!!!!!!!!!!!!!!
+
+
 @TeleOp
 public class NowInColor extends LinearOpMode {
     @Override
