@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 public class DriveBlue extends LinearOpMode {
 
     public final static double TURN_SPEED = 0.5;
-    public final static double TURN_TIME = 1.25;
+    public final static double TURN_TIME = 1.4;
 
     public final static double RUN_SPEED = 0.5;
 
@@ -33,12 +33,12 @@ public class DriveBlue extends LinearOpMode {
         hand.close();
 
         wheels.forward(0.8, 2);
-        wheels.turnRight(TURN_SPEED, TURN_TIME*2);
+        wheels.turnRight(TURN_SPEED, TURN_TIME * 2.8);
         hand.open();
         //arm.retract();
 
         wheels.backwards(RUN_SPEED, 4);
-        wheels.turnRight(TURN_SPEED, TURN_TIME);
+        wheels.turnRight(TURN_SPEED, TURN_TIME * 2.8);
         hand.close();
 
 
