@@ -1,5 +1,9 @@
 package org.firstinspires.ftc.riseofbabyminty;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import com.qualcomm.hardware.rev.RevColorSensorV3;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -9,6 +13,13 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
+
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalField;
+import java.time.temporal.TemporalUnit;
+import java.util.Date;
 
 
 // This is the code for the wheels (hambibweurh)
@@ -90,6 +101,58 @@ public class MegaHamburgerDrive {
         telemetry.addData("RBackHamburgerPower: ", rightBackHamburgerPower);
 //
 //        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void forward(double speed, int seconds){
+        LocalTime currentTime = LocalTime.now();
+        LocalTime stopTime = currentTime.plusSeconds(seconds);
+
+        while(currentTime.isBefore(stopTime)) {
+            leftFrontHamburger.setPower(speed);
+            leftBackHamburger.setPower(speed);
+            rightBackHamburger.setPower(speed);
+            rightFrontHamburger.setPower(speed);
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void backwards(double speed, int seconds){
+        LocalTime currentTime = LocalTime.now();
+        LocalTime stopTime = currentTime.plusSeconds(seconds);
+
+        while(currentTime.isBefore(stopTime)) {
+            leftFrontHamburger.setPower(-speed);
+            leftBackHamburger.setPower(-speed);
+            rightBackHamburger.setPower(-speed);
+            rightFrontHamburger.setPower(-speed);
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void turnRight(int seconds){
+        LocalTime currentTime = LocalTime.now();
+        LocalTime stopTime = currentTime.plusSeconds(seconds);
+
+        while(currentTime.isBefore(stopTime)) {
+            leftFrontHamburger.setPower(-0.25);
+            leftBackHamburger.setPower(0);
+            rightFrontHamburger.setPower(0.5);
+            rightBackHamburger.setPower(0.5);
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void turnLeft(int seconds){
+        LocalTime currentTime = LocalTime.now();
+        LocalTime stopTime = currentTime.plusSeconds(seconds);
+
+        while(currentTime.isBefore(stopTime)) {
+            leftFrontHamburger.setPower(0.5);
+            leftBackHamburger.setPower(0.5);
+            rightFrontHamburger.setPower(-0.25);
+            rightBackHamburger.setPower(0);
+        }
     }
 }
 
