@@ -1,10 +1,12 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 import data.Point;
 import data.Position;
 
+@Disabled
 @Autonomous
 public class AutoOpModeRedBack extends MintAutonomous {
     public AutoOpModeRedBack() {
@@ -18,6 +20,7 @@ public class AutoOpModeRedBack extends MintAutonomous {
         rotateToHeading(0);
 
     }
+
     public void park() {
         Point p = new Point(currentPos.x + parkX, currentPos.y - 6);
         driveToClosestPoint(p);

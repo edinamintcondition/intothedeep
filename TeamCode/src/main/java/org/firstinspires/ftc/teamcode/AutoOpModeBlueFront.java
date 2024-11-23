@@ -1,10 +1,12 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 import data.Point;
 import data.Position;
 
+@Disabled
 @Autonomous
 public class AutoOpModeBlueFront extends MintAutonomous {
 
