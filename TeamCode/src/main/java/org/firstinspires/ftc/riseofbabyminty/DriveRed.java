@@ -8,16 +8,18 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 @Autonomous
-public class DriveRed  extends LinearOpMode {
-    @RequiresApi(api = Build.VERSION_CODES.O)
+public class DriveRed extends LinearOpMode {
+
     @Override
     public void runOpMode() {
         MegaHamburgerDrive wheels = new MegaHamburgerDrive(hardwareMap, telemetry, gamepad1);
 
+        waitForStart();
+
         wheels.forward(0.5, 5);
         wheels.turnRight(2);
         wheels.forward(0.5, 2);
-        wheels.turnLeft( 2);
+        wheels.turnLeft(2);
         wheels.backwards(0.5, 2);
     }
 }
