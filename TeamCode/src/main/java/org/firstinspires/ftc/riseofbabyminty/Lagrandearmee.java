@@ -39,13 +39,13 @@ public class Lagrandearmee {
         //lorax -> }:
 
         //below is experimentalcode for claws, the HEPPESERVOS are purely for experimental, comment them when actual use
-        if (gamepad.right_bumper = true) {
+        if (gamepad.right_bumper) {
             rightheppeservo.setPosition(0.75);
         } else {
             rightheppeservo.setPosition(0);
         }
-        if (gamepad.left_bumper = true) {
-            leftheppeservo.setPosition(-0.75);
+        if (gamepad.left_bumper) {
+            leftheppeservo.setPosition(0.75);
         } else {
             leftheppeservo.setPosition(0);
         }
