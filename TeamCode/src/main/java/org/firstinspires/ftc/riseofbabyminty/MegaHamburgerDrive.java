@@ -104,11 +104,11 @@ public class MegaHamburgerDrive {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void forward(double speed, int seconds){
+    public void forward(double speed, int seconds) {
         LocalTime currentTime = LocalTime.now();
         LocalTime stopTime = currentTime.plusSeconds(seconds);
 
-        while(currentTime.isBefore(stopTime)) {
+        while (LocalTime.now().isBefore(stopTime)) {
             leftFrontHamburger.setPower(speed);
             leftBackHamburger.setPower(speed);
             rightBackHamburger.setPower(speed);
@@ -117,11 +117,11 @@ public class MegaHamburgerDrive {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void backwards(double speed, int seconds){
+    public void backwards(double speed, int seconds) {
         LocalTime currentTime = LocalTime.now();
         LocalTime stopTime = currentTime.plusSeconds(seconds);
 
-        while(currentTime.isBefore(stopTime)) {
+        while (LocalTime.now().isBefore(stopTime)) {
             leftFrontHamburger.setPower(-speed);
             leftBackHamburger.setPower(-speed);
             rightBackHamburger.setPower(-speed);
@@ -130,11 +130,11 @@ public class MegaHamburgerDrive {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void turnRight(int seconds){
+    public void turnRight(int seconds) {
         LocalTime currentTime = LocalTime.now();
         LocalTime stopTime = currentTime.plusSeconds(seconds);
 
-        while(currentTime.isBefore(stopTime)) {
+        while (LocalTime.now().isBefore(stopTime)) {
             leftFrontHamburger.setPower(-0.25);
             leftBackHamburger.setPower(0);
             rightFrontHamburger.setPower(0.5);
@@ -143,11 +143,11 @@ public class MegaHamburgerDrive {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void turnLeft(int seconds){
+    public void turnLeft(int seconds) {
         LocalTime currentTime = LocalTime.now();
         LocalTime stopTime = currentTime.plusSeconds(seconds);
 
-        while(currentTime.isBefore(stopTime)) {
+        while (LocalTime.now().isBefore(stopTime)) {
             leftFrontHamburger.setPower(0.5);
             leftBackHamburger.setPower(0.5);
             rightFrontHamburger.setPower(-0.25);
