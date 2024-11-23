@@ -113,8 +113,8 @@ public class MegaHamburgerDrive {
         while (runtime.seconds() <= seconds) {
             leftFrontHamburger.setPower(speed);
             leftBackHamburger.setPower(speed);
-            rightBackHamburger.setPower(-speed);
-            rightFrontHamburger.setPower(speed);
+            rightFrontHamburger.setPower(-speed);
+            rightBackHamburger.setPower(speed);
         }
     }
 
@@ -126,36 +126,48 @@ public class MegaHamburgerDrive {
         while (runtime.seconds() <= seconds) {
             leftFrontHamburger.setPower(-speed);
             leftBackHamburger.setPower(-speed);
-            rightBackHamburger.setPower(speed);
-            rightFrontHamburger.setPower(-speed);
+            rightFrontHamburger.setPower(speed);
+            rightBackHamburger.setPower(-speed);
         }
     }
 
-    public void turnRight(int seconds) {
+    public void turnRight(double speed, double seconds) {
         ElapsedTime runtime = new ElapsedTime();
 
         telemetry.addData("Turning right for %0.2f seconds ", seconds);
         telemetry.update();
         while (runtime.seconds() <= seconds) {
-            leftFrontHamburger.setPower(-0.25);
-            leftBackHamburger.setPower(0);
-            rightFrontHamburger.setPower(0.5);
-            rightBackHamburger.setPower(-0.5);
+            leftFrontHamburger.setPower(speed);
+            leftBackHamburger.setPower(speed);
+            rightFrontHamburger.setPower(speed);
+            rightBackHamburger.setPower(-speed);
         }
     }
 
-    public void turnLeft(int seconds) {
+    public void turnLeft(double speed, double seconds) {
         ElapsedTime runtime = new ElapsedTime();
 
         telemetry.addData("Turning left for %0.2f seconds ", seconds);
         telemetry.update();
-        
+
         while (runtime.seconds() <= seconds) {
-            leftFrontHamburger.setPower(0.5);
-            leftBackHamburger.setPower(0.5);
-            rightFrontHamburger.setPower(-0.25);
-            rightBackHamburger.setPower(0);
+            leftFrontHamburger.setPower(-speed);
+            leftBackHamburger.setPower(-speed);
+            rightFrontHamburger.setPower(-speed);
+            rightBackHamburger.setPower(speed);
         }
+    }
+
+    public void stop() {
+        ElapsedTime runtime = new ElapsedTime();
+
+        telemetry.addData("Stopping", "");
+        telemetry.update();
+
+        leftFrontHamburger.setPower(0);
+        leftBackHamburger.setPower(0);
+        rightFrontHamburger.setPower(0);
+        rightBackHamburger.setPower(0);
     }
 }
 

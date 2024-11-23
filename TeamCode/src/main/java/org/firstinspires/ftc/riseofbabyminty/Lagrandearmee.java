@@ -57,6 +57,17 @@ public class Lagrandearmee {
     }
     // sticking out your gamepad left stick Y for the rizzler
     // armbutton = gamepad1.left_stick_y
+
+    public void open(){
+        magicservo.setPosition(0);
+
+        telemetry.addData("Opening", magicservo.getPosition());
+    }
+
+    public void close(){
+        magicservo.setPosition(1);
+        telemetry.addData("Closing", magicservo.getPosition());
+    }
 }
 
 

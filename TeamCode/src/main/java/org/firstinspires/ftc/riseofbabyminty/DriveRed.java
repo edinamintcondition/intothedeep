@@ -10,16 +10,42 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 @Autonomous
 public class DriveRed extends LinearOpMode {
 
+    public final static double TURN_SPEED = 0.5;
+    public final static double TURN_TIME = 1.25;
+
+    public final static double RUN_SPEED = 0.5;
+
     @Override
-    public void runOpMode() {
+    public void runOpMode() throws InterruptedException {
         MegaHamburgerDrive wheels = new MegaHamburgerDrive(hardwareMap, telemetry, gamepad1);
+        Lagrandearmee hand = new Lagrandearmee(hardwareMap, telemetry, gamepad2);
+        LplusRatio arm = new LplusRatio(hardwareMap, telemetry, gamepad2);
 
         waitForStart();
+        hand.open();
 
-        wheels.forward(0.5, 5);
-        wheels.turnRight(2);
-        wheels.forward(0.5, 2);
-        wheels.turnLeft(2);
-        wheels.backwards(0.5, 2);
+
+        hand.close();
+
+        wheels.forward(RUN_SPEED, 4);
+        wheels.turnLeft(TURN_SPEED, TURN_TIME);
+        hand.open();
+
+        wheels.forward(RUN_SPEED, 4);
+        wheels.turnLeft(TURN_SPEED, TURN_TIME);
+        //arm.extend();
+        hand.close();
+
+        wheels.forward(0.8, 2);
+        wheels.turnLeft(TURN_SPEED, TURN_TIME);
+        hand.open();
+
+        //arm.retract();
+        wheels.forward(RUN_SPEED, 4);
+        wheels.turnLeft(TURN_SPEED, TURN_TIME);
+        hand.close();
+        wheels.stop();
+
+        requestOpModeStop();
     }
 }
