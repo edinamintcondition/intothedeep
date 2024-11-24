@@ -12,8 +12,9 @@ public class Lagrandearmee {
     Gamepad gamepad;
     Telemetry telemetry;
     Servo magicservo;
-//    Servo leftheppeservo;
+    //    Servo leftheppeservo;
 //    Servo rightheppeservo;
+    boolean isClosed = false;
 
     public Lagrandearmee(HardwareMap hardwareMap, Telemetry telemetry, Gamepad gamepad) {
         // step 1: all initial steps (hardwaremapwhee)
@@ -30,12 +31,19 @@ public class Lagrandearmee {
 
     //ADJUST INPUTS SO camera detects color
     public void wingedhussars() {
-        //below: the servo for the hand
-        double movevalue = -gamepad.right_stick_y;
-        telemetry.addData("movevalue", movevalue);
-        //calculate servo
-        double magicservoPosition = (movevalue / 2) + 0.5;
+        double magicservoPosition;
 
+        if (gamepad.right_bumper) {
+            magicservoPosition = 0.9;
+        } else {
+            //below: the servo for the hand
+            double movevalue = -gamepad.right_stick_y;
+            telemetry.addData("movevalue", movevalue);
+            //calculate servo
+            magicservoPosition = (movevalue / 2) + 0.5;
+
+            magicservo.setPosition(magicservoPosition);
+        }
         //lorax -> }:
 
 //        //below is experimentalcode for claws, the HEPPESERVOS are purely for experimental, comment them when actual use
@@ -58,13 +66,13 @@ public class Lagrandearmee {
     // sticking out your gamepad left stick Y for the rizzler
     // armbutton = gamepad1.left_stick_y
 
-    public void open(){
+    public void open() {
         magicservo.setPosition(0);
 
         telemetry.addData("Opening", magicservo.getPosition());
     }
 
-    public void close(){
+    public void close() {
         magicservo.setPosition(1);
         telemetry.addData("Closing", magicservo.getPosition());
     }
