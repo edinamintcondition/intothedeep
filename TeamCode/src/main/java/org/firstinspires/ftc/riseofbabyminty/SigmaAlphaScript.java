@@ -11,7 +11,7 @@ public class SigmaAlphaScript extends LinearOpMode {
     public void runOpMode() {
         MegaHamburgerDrive wheels = new MegaHamburgerDrive(hardwareMap, telemetry, gamepad1);
         Lagrandearmee hand = new Lagrandearmee(hardwareMap, telemetry, gamepad2);
-        LplusRatio arm = new LplusRatio(hardwareMap, telemetry, gamepad2);
+        LplusRatio arm = new LplusRatio(hardwareMap, telemetry, gamepad2, hand);
         //wait for??? Start OpMode
         waitForStart();
 

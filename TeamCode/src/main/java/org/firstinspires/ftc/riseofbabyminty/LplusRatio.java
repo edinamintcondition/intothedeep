@@ -20,10 +20,11 @@ public class LplusRatio {
     Gamepad gamepad;
     Telemetry telemetry;
     DcMotor lagarra;
+    Lagrandearmee hand;
 
     double MAX_SPEED = 0.30;
 
-    public LplusRatio(HardwareMap hardwareMap, Telemetry telemetry, Gamepad gamepad) {
+    public LplusRatio(HardwareMap hardwareMap, Telemetry telemetry, Gamepad gamepad, Lagrandearmee hand) {
         this.telemetry = telemetry;
         this.gamepad = gamepad;
         this.lagarra = hardwareMap.get(DcMotor.class, "armmotor");
@@ -41,6 +42,9 @@ public class LplusRatio {
             }
         }
         telemetry.addData("armposition", armposition);
+        if (armposition < 0) {
+            hand.close();
+        }
         lagarra.setPower(armposition);
         telemetry.addData("armpower", lagarra.getPower());
     }
@@ -75,4 +79,5 @@ public class LplusRatio {
         lagarra.setMode(RUN_TO_POSITION);
         sleep(1);
     }
+    //we are done
 }
