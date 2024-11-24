@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+//autonomous for left side, put sample in zone
 @Autonomous
 public class LeftGrahutonomous extends LinearOpMode {
 
@@ -31,12 +32,14 @@ public class LeftGrahutonomous extends LinearOpMode {
             wheels.forward(0.85, 2);
             // 45 deg: speed = turn_speed (0.5) , secs =1.3
             wheels.turnLeft(TURN_SPEED, 1.2);
+
+
             wheels.forward(0.5, 1);
-            wheels.turnLeft(TURN_SPEED, 1.2);
-            wheels.forward(1, 1);
+            wheels.turnLeft(TURN_SPEED, 1.25);
+            wheels.forward(0.8, 2);
             //turnright to zone
             wheels.turnRight(TURN_SPEED, 0.8);
-            wheels.forward(RUN_SPEED, 1);
+            wheels.forward(0.6, 1);
             wheels.backwards(0.8, 1);
             //turn to parking and park!!!!!!!!!
             wheels.turnLeft(TURN_SPEED, 0.6);
@@ -71,6 +74,6 @@ public class LeftGrahutonomous extends LinearOpMode {
 
     public void parkOnly(MegaHamburgerDrive wheels) {
         //park
-        wheels.forward(0.8, 4);
+        wheels.forward(0.75, 4);
     }
 }

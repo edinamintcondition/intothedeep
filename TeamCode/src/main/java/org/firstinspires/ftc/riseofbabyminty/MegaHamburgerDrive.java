@@ -84,10 +84,12 @@ public class MegaHamburgerDrive {
         telemetry.addData("lateralvalue", lateral);
         telemetry.addData("yawvalue", yaw);
 
-        double leftFrontHamburgerPower = axial + lateral + (yaw * 3);
-        double leftBackHamburgerPower = axial - lateral + (yaw * 3);
-        double rightFrontHamburgerPower = -axial + lateral + (yaw * 3);
-        double rightBackHamburgerPower = axial + lateral - (yaw * 3);
+        double leftFrontHamburgerPower = (axial * 0.75) + (lateral * 0.75) + (yaw * 2);
+        double leftBackHamburgerPower = (axial * 0.75) - (lateral * 0.75) + (yaw * 2);
+        //reconfigure below if not working
+        double rightFrontHamburgerPower = -(axial * 0.75) + (lateral * 0.75) + (yaw * 2);
+        //
+        double rightBackHamburgerPower = (axial * 0.75) + (lateral * 0.75) - (yaw * 2);
 
 //          double rightFrontHamburgerPower = 0.53;
 

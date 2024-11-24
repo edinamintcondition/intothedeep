@@ -3,6 +3,7 @@ package org.firstinspires.ftc.riseofbabyminty;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
+//below is solely the parking code, moves forward and parks
 @Autonomous
 public class OutOfThePark extends LinearOpMode {
 

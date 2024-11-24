@@ -28,6 +28,7 @@ public class LplusRatio {
         this.telemetry = telemetry;
         this.gamepad = gamepad;
         this.lagarra = hardwareMap.get(DcMotor.class, "armmotor");
+        this.hand = hand;
         lagarra.setDirection(DcMotorSimple.Direction.FORWARD);
     }
 
@@ -42,9 +43,9 @@ public class LplusRatio {
             }
         }
         telemetry.addData("armposition", armposition);
-        if (armposition < 0) {
-            hand.close();
-        }
+//        if (armposition > 0) {
+//            hand.close();
+//        }
         lagarra.setPower(armposition);
         telemetry.addData("armpower", lagarra.getPower());
     }

@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+//this code isnt meant to be used yet
 //the below will most likely get changed
 @Autonomous
 public class RightGrahutonomous extends LinearOpMode {
