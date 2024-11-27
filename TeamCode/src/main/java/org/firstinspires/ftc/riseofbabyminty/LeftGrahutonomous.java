@@ -29,22 +29,22 @@ public class LeftGrahutonomous extends LinearOpMode {
 //            }]
             //initial venture to (BELOW IS WORK IN PROGRESS
             // 2 tiles: speed = 0.85, secs = 2
-            wheels.forward(0.85, 2);
+            wheels.forward(0.83, 2);
             // 45 deg: speed = turn_speed (0.5) , secs =1.3
-            wheels.turnLeft(TURN_SPEED, 1.2);
+            wheels.turnLeft(TURN_SPEED, 1.23);
 
 
-            wheels.forward(0.5, 1);
+            wheels.forward(0.35, 1);
             wheels.turnLeft(TURN_SPEED, 1.25);
-            wheels.forward(0.8, 2);
+            wheels.forward(0.78, 2);
             //turnright to zone
             wheels.turnRight(TURN_SPEED, 0.8);
-            wheels.forward(0.6, 1);
-            wheels.backwards(0.8, 1);
+            wheels.forward(0.27, 1);
+            wheels.backwards(0.6, 2);
             //turn to parking and park!!!!!!!!!
-            wheels.turnLeft(TURN_SPEED, 0.6);
-            wheels.forward(RUN_SPEED, 1);
-            wheels.turnLeft(0.85, 0.78);
+            wheels.turnLeft(TURN_SPEED, 0.8);
+            wheels.forward(0.38, 1);
+            wheels.turnLeft(0.8, 0.8);
             //park
             parkOnly(wheels);
             // sample code :
@@ -74,6 +74,6 @@ public class LeftGrahutonomous extends LinearOpMode {
 
     public void parkOnly(MegaHamburgerDrive wheels) {
         //park
-        wheels.forward(0.75, 4);
+        wheels.forward(0.67, 3);
     }
 }

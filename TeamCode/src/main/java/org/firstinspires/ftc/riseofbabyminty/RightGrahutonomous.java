@@ -29,22 +29,24 @@ public class RightGrahutonomous extends LinearOpMode {
         while (opModeIsActive()) {
 //            }]
             //initial venture to (BELOW IS WORK IN PROGRESS
-            // 2 tiles: speed = 0.85, secs = 2
-            wheels.forward(0.85, 2);
-            // 45 deg: speed = turn_speed (0.5) , secs =1.3
-            wheels.turnLeft(TURN_SPEED, 1.2);
+            wheels.forward(0.6, 1);
+            wheels.turnRight(TURN_SPEED, 1.3);
+            wheels.forward(RUN_SPEED, 2);
+            //reaches park, turns
+            wheels.turnLeft(TURN_SPEED, 1.3);
+            wheels.forward(RUN_SPEED, 2);
+            //turns right away from sub
+            wheels.turnRight(TURN_SPEED, 1.3);
             wheels.forward(0.5, 1);
-            wheels.turnLeft(TURN_SPEED, 1.2);
-            wheels.forward(1, 1);
-            //turn right to zone (change this so push one sample to the zone
-            wheels.turnRight(TURN_SPEED, 0.8);
-            wheels.forward(RUN_SPEED, 1);
-            wheels.backwards(0.8, 1);
-            //turn to parking and park!!!!!!!!! change this part to fit the right
-            wheels.turnLeft(TURN_SPEED, 0.6);
-            wheels.forward(RUN_SPEED, 1);
-            wheels.turnLeft(0.85, 0.78);
-            //park
+            //turn to sample and push it to park
+            wheels.turnRight(TURN_SPEED, 1.3);
+            wheels.forward(RUN_SPEED, 2);
+            //turn to drop off zone
+            wheels.turnRight(TURN_SPEED, 1.3);
+            //leave at zone
+            wheels.forward(RUN_SPEED, 3);
+            //turn around. go park
+            wheels.turnRight(TURN_SPEED, 2.6);
             parkOnly(wheels);
             // sample code :
 //        wheels.turnRight(TURN_SPEED, TURN_TIME);
