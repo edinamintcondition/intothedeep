@@ -12,6 +12,7 @@ public class SigmaAlphaScript extends LinearOpMode {
         MegaHamburgerDrive wheels = new MegaHamburgerDrive(hardwareMap, telemetry, gamepad1);
         Lagrandearmee hand = new Lagrandearmee(hardwareMap, telemetry, gamepad2);
         LplusRatio arm = new LplusRatio(hardwareMap, telemetry, gamepad2, hand);
+        CamaraOscura camara = new CamaraOscura(hardwareMap, telemetry, hand);
         //wait for??? Start OpMode
         waitForStart();
 
@@ -20,7 +21,7 @@ public class SigmaAlphaScript extends LinearOpMode {
             wheels.drivecarvroom();
             hand.wingedhussars();
             arm.teutonicknight();
-
+            camara.cameraOscuraQueMeQuiereComerMiCerebroMuyTriste();
             telemetry.update();
         }
 
