@@ -4,24 +4,24 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@TeleOp(name = "SigmaAlphaScript", group = "B")
-public class SigmaAlphaScript extends LinearOpMode {
+@TeleOp(name = "RedSigmaAlphaScript", group = "B")
+public class RedSigmaAlphaScript extends LinearOpMode {
 
     @Override
     public void runOpMode() {
         MegaHamburgerDrive wheels = new MegaHamburgerDrive(hardwareMap, telemetry, gamepad1);
-        Lagrandearmee hand = new Lagrandearmee(hardwareMap, telemetry, gamepad2);
+        CamaraOscura camara = new CamaraOscura(hardwareMap, telemetry);
+        Lagrandearmee hand = new Lagrandearmee(hardwareMap, telemetry, gamepad2, camara);
         LplusRatio arm = new LplusRatio(hardwareMap, telemetry, gamepad2, hand);
-        CamaraOscura camara = new CamaraOscura(hardwareMap, telemetry, hand);
         //wait for??? Start OpMode
         waitForStart();
 
         while (opModeIsActive()) {
             //invoking the magic car deities
             wheels.drivecarvroom();
-            hand.wingedhussars();
+            hand.polishhussars();
             arm.teutonicknight();
-            camara.cameraOscuraQueMeQuiereComerMiCerebroMuyTriste();
+            //   camara.cameraOscuraQueMeQuiereComerMiCerebroMuyTriste();
             telemetry.update();
         }
 

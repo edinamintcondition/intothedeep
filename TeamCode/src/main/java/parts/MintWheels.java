@@ -77,7 +77,6 @@ public class MintWheels {
             backwardPowerLimit = -0.45;
             telemetry.addData(">", "normal speed :b");
         }
-
         controlWheel("Left Front", leftFront, leftFrontPower, max, min);
         controlWheel("Right Front", rightFront, rightFrontPower, max, min);
         controlWheel("Left Back", leftBack, leftBackPower, max, min);

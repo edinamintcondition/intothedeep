@@ -16,8 +16,9 @@ public class RightGrahutonomous extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
+        CamaraOscura acamara = new CamaraOscura(hardwareMap, telemetry);
         MegaHamburgerDrive wheels = new MegaHamburgerDrive(hardwareMap, telemetry, gamepad1);
-        Lagrandearmee hand = new Lagrandearmee(hardwareMap, telemetry, gamepad2);
+        Lagrandearmee hand = new Lagrandearmee(hardwareMap, telemetry, gamepad2, acamara);
         LplusRatio arm = new LplusRatio(hardwareMap, telemetry, gamepad2, hand);
 
         waitForStart();

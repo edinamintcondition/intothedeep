@@ -13,16 +13,16 @@ import org.firstinspires.ftc.vision.opencv.PredominantColorProcessor;
 
 //widewy crashing out
 public class CamaraOscura {
-
     String cameraName = "CoolCamera";
     Telemetry telemetry;
     VisionPortal visionPortal;
-    Lagrandearmee handyHand;
     PredominantColorProcessor colorSensor;
+    boolean yellow;
+    boolean blue;
+    boolean red;
 
-    public CamaraOscura(HardwareMap hardwareMap, Telemetry telemetry, Lagrandearmee handyHand) {
+    public CamaraOscura(HardwareMap hardwareMap, Telemetry telemetry) {
         this.telemetry = telemetry;
-        this.handyHand = handyHand;
         colorSensor = new PredominantColorProcessor.Builder()
                 .setRoi(ImageRegion.asUnityCenterCoordinates(-0.1, 0.1, 0.1, -0.1))
                 .setSwatches(
@@ -41,14 +41,30 @@ public class CamaraOscura {
 
     public void cameraOscuraQueMeQuiereComerMiCerebroMuyTriste() {
         //trolololololololo
-        PredominantColorProcessor.Result result = colorSensor.getAnalysis();
-        telemetry.addData("Best Match:", result.closestSwatch);
+        //add function where x button is pressed and closing stops
 
-        if (result.closestSwatch == PredominantColorProcessor.Swatch.RED) {
-            handyHand.close();
-            //add function where x button is pressed and closing stops
-        }
     }
 
+    public boolean IsRed() {
+        PredominantColorProcessor.Result result = colorSensor.getAnalysis();
+        red = false;
+        telemetry.addData("Best Match:", result.closestSwatch);
+        if (result.closestSwatch == PredominantColorProcessor.Swatch.RED || result.closestSwatch == PredominantColorProcessor.Swatch.YELLOW) {
+            red = true;
+        }
+
+        return red;
+    }
+
+    public boolean IsBlue() {
+        PredominantColorProcessor.Result result = colorSensor.getAnalysis();
+        blue = false;
+        telemetry.addData("Best Match:", result.closestSwatch);
+        if (result.closestSwatch == PredominantColorProcessor.Swatch.BLUE || result.closestSwatch == PredominantColorProcessor.Swatch.YELLOW) {
+            blue = true;
+
+        }
+        return blue;
+    }
 }
 //crashing out because of a camara D:
