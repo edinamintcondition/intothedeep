@@ -12,6 +12,7 @@ public class BlueSigmaAlphaScript extends LinearOpMode {
         CamaraOscura camara = new CamaraOscura(hardwareMap, telemetry);
         Lagrandearmee hand = new Lagrandearmee(hardwareMap, telemetry, gamepad2, camara);
         LplusRatio arm = new LplusRatio(hardwareMap, telemetry, gamepad2, hand);
+        hand.close();
         //wait for??? Start OpMode
         waitForStart();
 

@@ -1,5 +1,9 @@
 package org.firstinspires.ftc.riseofbabyminty;
 
+import static java.util.Arrays.asList;
+import static java.util.Collections.max;
+import static java.util.Collections.min;
+
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;
@@ -27,7 +31,8 @@ import java.util.Date;
 // This is the code for the wheels (hambibweurh)
 
 public class MegaHamburgerDrive {
-
+    //difference variable for when testing different robots
+    double leftTurnDiff = 0.75;
     Gamepad gamepad;
     Telemetry telemetry;
 
@@ -84,14 +89,28 @@ public class MegaHamburgerDrive {
         telemetry.addData("lateralvalue", lateral);
         telemetry.addData("yawvalue", yaw);
 
-        double leftFrontHamburgerPower = (axial * 0.75) + (lateral * 0.75) + (yaw * 2);
-        double leftBackHamburgerPower = (axial * 0.75) - (lateral * 0.75) + (yaw * 2);
+        double leftFrontHamburgerPower = axial + lateral + (yaw * 2);
+        double leftBackHamburgerPower = axial - lateral + (yaw * 2);
         //reconfigure below if not working
-        double rightFrontHamburgerPower = -(axial * 0.75) + (lateral * 0.75) + (yaw * 2);
+        double rightFrontHamburgerPower = -axial + lateral + (yaw * 2);
         //
-        double rightBackHamburgerPower = (axial * 0.75) + (lateral * 0.75) - (yaw * 2);
+        double rightBackHamburgerPower = axial + lateral - (yaw * 2);
 
 //          double rightFrontHamburgerPower = 0.53;
+
+
+        if (!gamepad.right_bumper) {
+            leftFrontHamburgerPower = leftFrontHamburgerPower * 0.60;
+            leftBackHamburgerPower = leftBackHamburgerPower * 0.60;
+            rightFrontHamburgerPower = rightFrontHamburgerPower * 0.60;
+            rightBackHamburgerPower = rightBackHamburgerPower * 0.60;
+        }
+        if (gamepad.left_bumper) {
+            leftFrontHamburgerPower = leftFrontHamburgerPower * 0.20;
+            leftBackHamburgerPower = leftBackHamburgerPower * 0.20;
+            rightFrontHamburgerPower = rightFrontHamburgerPower * 0.20;
+            rightBackHamburgerPower = rightBackHamburgerPower * 0.20;
+        }
 
         // move motor
         leftFrontHamburger.setPower(leftFrontHamburgerPower);
@@ -99,12 +118,14 @@ public class MegaHamburgerDrive {
         rightBackHamburger.setPower(rightBackHamburgerPower);
         rightFrontHamburger.setPower(rightFrontHamburgerPower);
 
+
         telemetry.addData("LFrontHamburgerPower: ", leftFrontHamburgerPower);
         telemetry.addData("RFrontHamburgerPower: ", rightFrontHamburgerPower);
         telemetry.addData("LBackHamburgerPower: ", leftBackHamburgerPower);
         telemetry.addData("RBackHamburgerPower: ", rightBackHamburgerPower);
 //
 //        }
+
     }
 
     public void forward(double speed, int seconds) {
@@ -153,8 +174,8 @@ public class MegaHamburgerDrive {
         telemetry.update();
 
         while (runtime.seconds() <= seconds) {
-            leftFrontHamburger.setPower(-speed);
-            leftBackHamburger.setPower(-speed);
+            leftFrontHamburger.setPower(-(speed / leftTurnDiff));
+            leftBackHamburger.setPower(-(speed / leftTurnDiff));
             rightFrontHamburger.setPower(-speed);
             rightBackHamburger.setPower(speed);
         }
