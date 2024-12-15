@@ -13,6 +13,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
@@ -50,35 +51,35 @@ public class LplusRatio {
         telemetry.addData("armpower", lagarra.getPower());
     }
 
+    //take note: extend is not actually extending the arm, it's more of a... swinging it around its axis to
+    // reach the destination... if it were extending it, the arm would be a linear slide, but it's not, so...
+    // same goes for the retract method, just keep it in mind!!!!z
     public void extend() throws InterruptedException {
+        ElapsedTime walktime = new ElapsedTime();
         telemetry.addData("Extending arm", lagarra.getPower());
         telemetry.update();
-
-        int newTarget = lagarra.getCurrentPosition() + 10;
-        lagarra.setTargetPosition(newTarget);
-        lagarra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        lagarra.setPower(abs(0.10));
-
-        while (lagarra.isBusy()) {
-            telemetry.addData("Currently at", " at %7d", lagarra.getCurrentPosition());
-            telemetry.addData("Running to", " %7d", newTarget);
-            telemetry.update();
+        while (walktime.seconds() <= 1.0) {
+//        int newTarget = lagarra.getCurrentPosition() + 10;
+//        lagarra.setTargetPosition(newTarget);
+//        lagarra.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            lagarra.setPower(0.5);
         }
-
         lagarra.setPower(0);
         telemetry.addData("Extending arm", lagarra.getCurrentPosition());
         telemetry.update();
-        sleep(250);   // optional pause after each move.
-    }
+    } // optional pause after each move.
 
     public void retract() throws InterruptedException {
-        telemetry.addData("Retracting arm", lagarra.getPower());
+        ElapsedTime walktime = new ElapsedTime();
+        telemetry.addData("Extending arm", lagarra.getPower());
+        telemetry.update();
+        while (walktime.seconds() <= 0.5) {
+            lagarra.setPower(-0.5);
+        }
 
-        lagarra.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        lagarra.setTargetPosition(500);
-        lagarra.setPower(-0.20);
-        lagarra.setMode(RUN_TO_POSITION);
-        sleep(1);
+        lagarra.setPower(0);
+        telemetry.addData("Retracting arm", lagarra.getCurrentPosition());
+        telemetry.update();
     }
     //we are done
 }

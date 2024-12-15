@@ -86,6 +86,8 @@ public class Lagrandearmee {
         double magicservoPosition;
         if (gamepad.left_bumper && thecamara.IsRed()) {
             magicservoPosition = 1;
+        } else if (gamepad.right_trigger > 0.4) {
+            magicservoPosition = 1.0;
         } else if (gamepad.right_bumper) {
             magicservoPosition = 0.9;
         } else {

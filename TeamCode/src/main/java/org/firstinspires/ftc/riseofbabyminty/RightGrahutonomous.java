@@ -32,10 +32,10 @@ public class RightGrahutonomous extends LinearOpMode {
             //initial venture to (BELOW IS WORK IN PROGRESS
             wheels.forward(0.6, 1);
             wheels.turnRight(TURN_SPEED, 1.3);
-            wheels.forward(RUN_SPEED, 2);
+            wheels.forward(RUN_SPEED, 1);
             //reaches park, turns
             wheels.turnLeft(TURN_SPEED, 1.3);
-            wheels.forward(RUN_SPEED, 2);
+            wheels.forward(RUN_SPEED, 1);
             //turns right away from sub
             wheels.turnRight(TURN_SPEED, 1.3);
             wheels.forward(0.5, 1);

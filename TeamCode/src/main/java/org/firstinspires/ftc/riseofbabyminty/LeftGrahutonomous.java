@@ -31,23 +31,46 @@ public class LeftGrahutonomous extends LinearOpMode {
             //initial venture to (BELOW IS WORK IN PROGRESS
             // 2 tiles: speed = 0.85, secs = 2
             wheels.forward(0.83, 2);
-            // 45 deg: speed = turn_speed (0.5) , secs =1.3
+            // 90 deg: speed = turn_speed (0.5) , secs =1.3
             wheels.turnLeft(TURN_SPEED, 1.23);
 
 
             wheels.forward(0.35, 1);
-            wheels.turnLeft(TURN_SPEED, 1.25);
-            wheels.forward(0.78, 2);
+            wheels.turnLeft(TURN_SPEED, 0.7);
+            wheels.forward(0.60, 2);
             //turnright to zone
             wheels.turnRight(TURN_SPEED, 0.8);
-            wheels.forward(0.27, 1);
+            wheels.forward(0.4, 1);
+            wheels.backwards(0.6, 1);
+
+            //below is some experimental code to get a second block in
+            wheels.turnLeft(0.35, 1);
+            //drive backwards up to the sample
             wheels.backwards(0.6, 2);
+            //turn to sample
+            wheels.turnRight(TURN_SPEED, 0.85);
+            //advance to sample
+            wheels.forward(0.35, 1);
+            //turn to sample in direction of the zone
+            wheels.turnLeft(TURN_SPEED, 0.7);
+            //push sample forth
+            wheels.forward(0.75, 2);
+            //turn with sample to the zone
+            wheels.turnRight(TURN_SPEED, 0.45);
+            //push sample in zone
+            wheels.forward(0.5, 1);
+            //go backwards to continue travel towards parking
+            wheels.backwards(0.6, 1);
+
             //turn to parking and park!!!!!!!!!
             wheels.turnLeft(TURN_SPEED, 0.8);
             wheels.forward(0.38, 1);
-            wheels.turnLeft(0.8, 0.8);
+            wheels.turnLeft(0.7, 0.7);
             //park
-            parkOnly(wheels);
+            wheels.forward(0.67, 2);
+            wheels.turnRight(TURN_SPEED, 0.5);
+            wheels.forward(0.37, 1);
+            wheels.turnLeft(0.37, 1);
             // sample code :
 //        wheels.turnRight(TURN_SPEED, TURN_TIME);
 //        hand.open();
