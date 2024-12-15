@@ -34,7 +34,7 @@ public class RightGrahutonomous extends LinearOpMode {
             wheels.turnRight(TURN_SPEED, 1.3);
             wheels.forward(RUN_SPEED, 1);
             //reaches park, turns
-            wheels.turnLeft(TURN_SPEED, 1.3);
+            wheels.turnLeft(TURN_SPEED, 1.0);
             wheels.forward(RUN_SPEED, 1);
             //turns right away from sub
             wheels.turnRight(TURN_SPEED, 1.3);
